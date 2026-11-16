@@ -92,6 +92,8 @@ public class ExampleMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        event.enqueueWork(MiningToolPredicate::registerTiers);
+
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
 
