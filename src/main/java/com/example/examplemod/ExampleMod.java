@@ -1,6 +1,8 @@
 package com.example.examplemod;
 
 import com.mojang.logging.LogUtils;
+import java.util.List;
+import net.minecraft.network.chat.Component;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -52,13 +54,14 @@ public class ExampleMod
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
 
-    // Creates a creative tab with the id "blacksmith:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
+    private static final List<RegistryObject<MetalIngotItem>> METAL_INGOTS = MetalIngots.ALL;
+
+    public static final RegistryObject<CreativeModeTab> MATERIALS_TAB = CREATIVE_MODE_TABS.register("materials",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.blacksmith.materials"))
+                    .icon(() -> METAL_INGOTS.get(0).get().getDefaultInstance())
+                    .displayItems((parameters, output) -> METAL_INGOTS.forEach(ingot -> output.accept(ingot.get())))
+                    .build());
 
     public ExampleMod(FMLJavaModLoadingContext context)
     {
