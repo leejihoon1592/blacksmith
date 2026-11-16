@@ -1,4 +1,6 @@
-package com.example.examplemod;
+package io.github.leejihoon1592.blacksmith.material;
+
+import io.github.leejihoon1592.blacksmith.BlacksmithMod;
 
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -8,16 +10,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ToolActions;
 
-final class MiningToolPredicate extends ItemPredicate {
+public final class MiningToolPredicate extends ItemPredicate {
     private final ResourceLocation id;
     private final Block referenceOre;
 
     private MiningToolPredicate(String name, Block referenceOre) {
-        this.id = ResourceLocation.fromNamespaceAndPath(ExampleMod.MODID, name);
+        this.id = ResourceLocation.fromNamespaceAndPath(BlacksmithMod.MODID, name);
         this.referenceOre = referenceOre;
     }
 
-    static void registerTiers() {
+    public static void registerTiers() {
         registerTier("iron_mining_tool", Blocks.DIAMOND_ORE);
         registerTier("diamond_mining_tool", Blocks.OBSIDIAN);
     }

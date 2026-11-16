@@ -1,8 +1,8 @@
-package com.example.examplemod;
+package io.github.leejihoon1592.blacksmith;
 
 import com.mojang.logging.LogUtils;
-import java.util.List;
-import net.minecraft.network.chat.Component;
+import io.github.leejihoon1592.blacksmith.material.MetalIngots;
+import io.github.leejihoon1592.blacksmith.material.MiningToolPredicate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -31,8 +31,8 @@ import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(ExampleMod.MODID)
-public class ExampleMod
+@Mod(BlacksmithMod.MODID)
+public class BlacksmithMod
 {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "blacksmith";
@@ -54,21 +54,11 @@ public class ExampleMod
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
 
-    private static final List<RegistryObject<MetalIngotItem>> METAL_INGOTS = MetalIngots.ALL;
-
-    public static final RegistryObject<CreativeModeTab> MATERIALS_TAB = CREATIVE_MODE_TABS.register("materials",
-            () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.blacksmith.materials"))
-                    .icon(() -> METAL_INGOTS.get(0).get().getDefaultInstance())
-                    .displayItems((parameters, output) -> {
-                        METAL_INGOTS.forEach(ingot -> output.accept(ingot.get()));
-                        MetalIngots.OTHER_MATERIALS.forEach(item -> output.accept(item.get()));
-                    })
-                    .build());
-
-    public ExampleMod(FMLJavaModLoadingContext context)
+    public BlacksmithMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
+
+        MetalIngots.registerCreativeTab();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

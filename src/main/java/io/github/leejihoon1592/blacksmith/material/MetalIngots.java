@@ -1,13 +1,17 @@
-package com.example.examplemod;
+package io.github.leejihoon1592.blacksmith.material;
 
+import io.github.leejihoon1592.blacksmith.BlacksmithMod;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
 import java.util.List;
 import java.util.ArrayList;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 
-final class MetalIngots {
-    static final List<RegistryObject<? extends Item>> OTHER_MATERIALS = new ArrayList<>();
-    static final List<RegistryObject<MetalIngotItem>> ALL = List.of(
+public final class MetalIngots {
+    private static final List<RegistryObject<? extends Item>> OTHER_MATERIALS = new ArrayList<>();
+    private static final List<RegistryObject<MetalIngotItem>> ALL = List.of(
             ingot("duracilium", 8, 7, 5, 3.5, 1.5),
             ingot("enduri", 9, 1, 7, 4.5, 3.5),
             ingot("tenaloct", 8, 3.5, 1.5, 7, 5),
@@ -34,7 +38,18 @@ final class MetalIngots {
             double hardness, double elasticity, double conductivity) {
         OTHER_MATERIALS.addAll(MetalForms.register(id));
         var stats = new MetalIngotItem.Stats(durability, polish, hardness, elasticity, conductivity);
-        return ExampleMod.ITEMS.register(id + "_ingot", () -> new MetalIngotItem(stats));
+        return BlacksmithMod.ITEMS.register(id + "_ingot", () -> new MetalIngotItem(stats));
+    }
+
+    public static void registerCreativeTab() {
+        BlacksmithMod.CREATIVE_MODE_TABS.register("materials", () -> CreativeModeTab.builder()
+                .title(Component.translatable("itemGroup.blacksmith.materials"))
+                .icon(() -> ALL.get(0).get().getDefaultInstance())
+                .displayItems((parameters, output) -> {
+                    ALL.forEach(ingot -> output.accept(ingot.get()));
+                    OTHER_MATERIALS.forEach(item -> output.accept(item.get()));
+                })
+                .build());
     }
 
     private MetalIngots() {}

@@ -1,4 +1,6 @@
-package com.example.examplemod;
+package io.github.leejihoon1592.blacksmith.material;
+
+import io.github.leejihoon1592.blacksmith.BlacksmithMod;
 
 import java.util.List;
 import net.minecraft.world.item.BlockItem;
@@ -22,12 +24,12 @@ final class MetalForms {
     }
 
     private static RegistryObject<Item> item(String id) {
-        return ExampleMod.ITEMS.register(id, () -> new Item(new Item.Properties()));
+        return BlacksmithMod.ITEMS.register(id, () -> new Item(new Item.Properties()));
     }
 
     private static RegistryObject<BlockItem> block(String id, Block template) {
-        var block = ExampleMod.BLOCKS.register(id, () -> new Block(BlockBehaviour.Properties.copy(template)));
-        return ExampleMod.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties()));
+        var block = BlacksmithMod.BLOCKS.register(id, () -> new Block(BlockBehaviour.Properties.copy(template)));
+        return BlacksmithMod.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     private MetalForms() {}
