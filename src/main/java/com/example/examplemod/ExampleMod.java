@@ -60,7 +60,10 @@ public class ExampleMod
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.blacksmith.materials"))
                     .icon(() -> METAL_INGOTS.get(0).get().getDefaultInstance())
-                    .displayItems((parameters, output) -> METAL_INGOTS.forEach(ingot -> output.accept(ingot.get())))
+                    .displayItems((parameters, output) -> {
+                        METAL_INGOTS.forEach(ingot -> output.accept(ingot.get()));
+                        MetalIngots.OTHER_MATERIALS.forEach(item -> output.accept(item.get()));
+                    })
                     .build());
 
     public ExampleMod(FMLJavaModLoadingContext context)

@@ -1,9 +1,12 @@
 package com.example.examplemod;
 
 import java.util.List;
+import java.util.ArrayList;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 
 final class MetalIngots {
+    static final List<RegistryObject<? extends Item>> OTHER_MATERIALS = new ArrayList<>();
     static final List<RegistryObject<MetalIngotItem>> ALL = List.of(
             ingot("duracilium", 8, 7, 5, 3.5, 1.5),
             ingot("enduri", 9, 1, 7, 4.5, 3.5),
@@ -29,6 +32,7 @@ final class MetalIngots {
 
     private static RegistryObject<MetalIngotItem> ingot(String id, double durability, double polish,
             double hardness, double elasticity, double conductivity) {
+        OTHER_MATERIALS.addAll(MetalForms.register(id));
         var stats = new MetalIngotItem.Stats(durability, polish, hardness, elasticity, conductivity);
         return ExampleMod.ITEMS.register(id + "_ingot", () -> new MetalIngotItem(stats));
     }
