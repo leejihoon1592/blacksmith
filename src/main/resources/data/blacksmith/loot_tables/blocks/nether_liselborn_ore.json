@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:liselborn_nugget",
+              "name": "blacksmith:liselborn_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

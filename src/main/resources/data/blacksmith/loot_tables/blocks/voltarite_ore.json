@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:voltarite_nugget",
+              "name": "blacksmith:voltarite_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

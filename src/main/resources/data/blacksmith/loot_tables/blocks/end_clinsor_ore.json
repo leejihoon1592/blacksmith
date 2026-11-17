@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:clinsor_nugget",
+              "name": "blacksmith:clinsor_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

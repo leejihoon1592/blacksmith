@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:lumesor_nugget",
+              "name": "blacksmith:lumesor_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:brackstal_nugget",
+              "name": "blacksmith:brackstal_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

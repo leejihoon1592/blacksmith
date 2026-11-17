@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:enduri_nugget",
+              "name": "blacksmith:enduri_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

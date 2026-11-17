@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:durathorn_nugget",
+              "name": "blacksmith:durathorn_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

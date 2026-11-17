@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:criminaltalloi_nugget",
+              "name": "blacksmith:criminaltalloi_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:tenaloct_nugget",
+              "name": "blacksmith:tenaloct_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:edgastium_nugget",
+              "name": "blacksmith:edgastium_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

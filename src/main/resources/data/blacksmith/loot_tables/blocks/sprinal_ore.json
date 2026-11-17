@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:sprinal_nugget",
+              "name": "blacksmith:sprinal_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

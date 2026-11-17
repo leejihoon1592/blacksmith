@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:granteron_nugget",
+              "name": "blacksmith:granteron_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

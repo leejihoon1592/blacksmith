@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:conductite_nugget",
+              "name": "blacksmith:conductite_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

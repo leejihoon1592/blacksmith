@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:stevalite_nugget",
+              "name": "blacksmith:stevalite_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

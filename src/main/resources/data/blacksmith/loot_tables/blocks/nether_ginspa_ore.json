@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:ginspa_nugget",
+              "name": "blacksmith:ginspa_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

@@ -68,7 +68,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "blacksmith:biklis_nugget",
+              "name": "blacksmith:biklis_raw_fragment",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
