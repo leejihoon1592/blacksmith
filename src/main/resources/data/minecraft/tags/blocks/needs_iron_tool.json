@@ -80,6 +80,26 @@
     "blacksmith:sprinal_ore",
     "blacksmith:stevalite_ore",
     "blacksmith:tenaloct_ore",
-    "blacksmith:voltarite_ore"
+    "blacksmith:voltarite_ore",
+    "blacksmith:duracilium_block",
+    "blacksmith:enduri_block",
+    "blacksmith:tenaloct_block",
+    "blacksmith:stevalite_block",
+    "blacksmith:accutyrone_block",
+    "blacksmith:charvin_block",
+    "blacksmith:clinsor_block",
+    "blacksmith:edgastium_block",
+    "blacksmith:criminaltalloi_block",
+    "blacksmith:brackstal_block",
+    "blacksmith:durathorn_block",
+    "blacksmith:granteron_block",
+    "blacksmith:flexarite_block",
+    "blacksmith:sprinal_block",
+    "blacksmith:liselborn_block",
+    "blacksmith:biklis_block",
+    "blacksmith:conductite_block",
+    "blacksmith:voltarite_block",
+    "blacksmith:lumesor_block",
+    "blacksmith:ginspa_block"
   ]
 }

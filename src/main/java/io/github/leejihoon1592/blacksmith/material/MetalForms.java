@@ -16,6 +16,7 @@ final class MetalForms {
                 item("raw_" + metal),
                 item(metal + "_nugget"),
                 item(metal + "_raw_fragment"),
+                block(metal + "_block", Blocks.DIAMOND_BLOCK),
                 block("raw_" + metal + "_block", Blocks.RAW_IRON_BLOCK),
                 block(metal + "_ore", Blocks.IRON_ORE),
                 block("deepslate_" + metal + "_ore", Blocks.DEEPSLATE_IRON_ORE),
