@@ -2,7 +2,7 @@ package io.github.leejihoon1592.blacksmith.guide;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.PlainTextButton;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -11,16 +11,18 @@ import net.minecraft.world.item.Items;
 public final class MiningGuideScreen extends Screen {
     private final GuidebookItem.Book book;
     private boolean mining;
+    private boolean miningRead;
     private int left;
     private int top;
 
-    private MiningGuideScreen(GuidebookItem.Book book) {
+    private MiningGuideScreen(GuidebookItem.Book book, boolean miningRead) {
         super(Component.translatable("item.blacksmith." + book.id));
         this.book = book;
+        this.miningRead = miningRead;
     }
 
-    static void open(GuidebookItem.Book book) {
-        Minecraft.getInstance().setScreen(new MiningGuideScreen(book));
+    static void open(GuidebookItem.Book book, boolean miningRead) {
+        Minecraft.getInstance().setScreen(new MiningGuideScreen(book, miningRead));
     }
 
     private static Component text(String key) {
@@ -32,11 +34,18 @@ public final class MiningGuideScreen extends Screen {
         left = (width - 292) / 2;
         top = (height - 174) / 2;
         if (book == GuidebookItem.Book.PRIMER) {
-            Button link = Button.builder(text(mining ? "contents" : "mining"), button -> {
+            Component label = mining ? text("contents") : text("mining").copy()
+                    .append(miningRead ? "○" : "△")
+                    .withStyle(style -> style.withColor(miningRead ? 0x287035 : 0xA77900));
+            addRenderableWidget(new PlainTextButton(left + (mining ? 12 : 157),
+                    top + (mining ? 137 : 57), font.width(label), font.lineHeight, label, button -> {
                 mining = !mining;
+                if (mining && !miningRead) {
+                    miningRead = true;
+                    GuideNetwork.markMiningRead();
+                }
                 rebuildWidgets();
-            }).bounds(left + (mining ? 12 : 157), top + (mining ? 137 : 57), 120, 20).build();
-            addRenderableWidget(link);
+            }, font));
         }
     }
 

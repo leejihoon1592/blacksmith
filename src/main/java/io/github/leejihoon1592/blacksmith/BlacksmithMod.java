@@ -1,6 +1,7 @@
 package io.github.leejihoon1592.blacksmith;
 
 import com.mojang.logging.LogUtils;
+import io.github.leejihoon1592.blacksmith.guide.GuideNetwork;
 import io.github.leejihoon1592.blacksmith.guide.GuidebookItem;
 import io.github.leejihoon1592.blacksmith.material.MetalIngots;
 import io.github.leejihoon1592.blacksmith.material.MiningToolPredicate;
@@ -88,6 +89,7 @@ public class BlacksmithMod
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(MiningToolPredicate::registerTiers);
+        GuideNetwork.register();
 
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");

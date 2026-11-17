@@ -6,8 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.DistExecutor;
+import net.minecraft.server.level.ServerPlayer;
 
 public final class GuidebookItem extends Item {
     public enum Book {
@@ -29,8 +28,8 @@ public final class GuidebookItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (level.isClientSide) {
-            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> MiningGuideScreen.open(book));
+        if (player instanceof ServerPlayer serverPlayer) {
+            GuideNetwork.open(serverPlayer, book);
         }
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide);
     }
