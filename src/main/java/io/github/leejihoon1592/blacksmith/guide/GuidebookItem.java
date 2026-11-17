@@ -10,14 +10,27 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 
 public final class GuidebookItem extends Item {
-    public GuidebookItem() {
+    public enum Book {
+        PRIMER("guidebook"), MATERIALS("material_journal"), WEAPONS("weapon_ledger");
+
+        final String id;
+
+        Book(String id) {
+            this.id = id;
+        }
+    }
+
+    private final Book book;
+
+    public GuidebookItem(Book book) {
         super(new Item.Properties().stacksTo(1));
+        this.book = book;
     }
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if (level.isClientSide) {
-            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> MiningGuideScreen::open);
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> MiningGuideScreen.open(book));
         }
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide);
     }

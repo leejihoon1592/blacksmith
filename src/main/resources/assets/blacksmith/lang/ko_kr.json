@@ -1,5 +1,5 @@
 {
-  "item.blacksmith.guidebook": "대장장이 가이드북",
+  "item.blacksmith.guidebook": "대장장이 입문서",
   "guide.blacksmith.mining": "첫 광물 캐기",
   "guide.blacksmith.iron": "철 곡괭이 → 금속 조각 4~9개",
   "guide.blacksmith.diamond": "다이아몬드 곡괭이 → 원석 1개",
@@ -164,5 +164,14 @@
   "block.blacksmith.ginspa_ore": "진스파 광석",
   "block.blacksmith.deepslate_ginspa_ore": "심층암 진스파 광석",
   "block.blacksmith.nether_ginspa_ore": "네더 진스파 광석",
-  "block.blacksmith.end_ginspa_ore": "엔드 진스파 광석"
+  "block.blacksmith.end_ginspa_ore": "엔드 진스파 광석",
+  "item.blacksmith.material_journal": "재료 연구서",
+  "item.blacksmith.weapon_ledger": "무기 제작 기록부",
+  "guide.blacksmith.contents": "목차",
+  "guide.blacksmith.records": "기록",
+  "guide.blacksmith.guidebook.intro": "광석을 캐는 일부터 대장장이의 작업을 익힙니다.",
+  "guide.blacksmith.material_journal.intro": "실험으로 밝혀낸 금속의 특성을 기록하는 책입니다.",
+  "guide.blacksmith.weapon_ledger.intro": "무기 외형별 제작 횟수와 보너스를 기록하는 책입니다.",
+  "guide.blacksmith.material_journal.empty": "아직 기록된 연구가 없습니다.",
+  "guide.blacksmith.weapon_ledger.empty": "아직 기록된 무기가 없습니다."
 }

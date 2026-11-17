@@ -2,35 +2,67 @@ package io.github.leejihoon1592.blacksmith.guide;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 public final class MiningGuideScreen extends Screen {
-    private MiningGuideScreen() {
-        super(Component.translatable("item.blacksmith.guidebook"));
+    private final GuidebookItem.Book book;
+    private boolean mining;
+    private int left;
+    private int top;
+
+    private MiningGuideScreen(GuidebookItem.Book book) {
+        super(Component.translatable("item.blacksmith." + book.id));
+        this.book = book;
     }
 
-    static void open() {
-        Minecraft.getInstance().setScreen(new MiningGuideScreen());
+    static void open(GuidebookItem.Book book) {
+        Minecraft.getInstance().setScreen(new MiningGuideScreen(book));
+    }
+
+    private static Component text(String key) {
+        return Component.translatable("guide.blacksmith." + key);
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        int x = (width - 236) / 2;
-        int y = (height - 152) / 2;
-        graphics.fill(x - 3, y - 3, x + 239, y + 155, 0xff594236);
-        graphics.fill(x, y, x + 236, y + 152, 0xffefe3c6);
-        graphics.drawString(font, title, x + 12, y + 10, 0xff71543c, false);
-        graphics.drawString(font, Component.translatable("guide.blacksmith.mining"), x + 12, y + 28, 0xff30251d, false);
-        graphics.fill(x + 12, y + 43, x + 224, y + 44, 0xffb99f79);
-        graphics.renderItem(new ItemStack(Items.IRON_PICKAXE), x + 12, y + 49);
-        graphics.drawString(font, Component.translatable("guide.blacksmith.iron"), x + 36, y + 54, 0xff30251d, false);
-        graphics.renderItem(new ItemStack(Items.DIAMOND_PICKAXE), x + 12, y + 72);
-        graphics.drawString(font, Component.translatable("guide.blacksmith.diamond"), x + 36, y + 77, 0xff30251d, false);
-        graphics.drawWordWrap(font, Component.translatable("guide.blacksmith.enchantments"), x + 12, y + 103, 212, 0xff594236);
-        super.render(graphics, mouseX, mouseY, partialTick);
+    protected void init() {
+        left = (width - 292) / 2;
+        top = (height - 174) / 2;
+        if (book == GuidebookItem.Book.PRIMER) {
+            Button link = Button.builder(text(mining ? "contents" : "mining"), button -> {
+                mining = !mining;
+                rebuildWidgets();
+            }).bounds(left + (mining ? 12 : 157), top + (mining ? 137 : 57), 120, 20).build();
+            addRenderableWidget(link);
+        }
+    }
+
+    @Override
+    public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
+        renderBackground(g);
+        int x = left, y = top;
+        g.fill(x-4,y-3,x+296,y+178,0xff50392f);
+        g.fill(x,y,x+146,y+174,0xffeee1c3);
+        g.fill(x+146,y,x+292,y+174,0xfff5ead0);
+        g.fill(x+143,y,x+148,y+174,0xffc3ac88);
+        g.drawWordWrap(font,title,x+12,y+15,121,0xff634735);
+        g.drawWordWrap(font,text(book.id + ".intro"),x+12,y+48,119,0xff44382e);
+        Component heading = book == GuidebookItem.Book.PRIMER
+                ? text(mining ? "mining" : "contents") : text("records");
+        g.drawString(font,heading,x+157,y+15,0xff493326,false);
+        g.fill(x+157,y+34,x+280,y+35,0xffb69d75);
+        if (mining) {
+            g.renderItem(new ItemStack(Items.IRON_PICKAXE),x+157,y+45);
+            g.drawWordWrap(font,text("iron"),x+177,y+46,103,0xff44382e);
+            g.renderItem(new ItemStack(Items.DIAMOND_PICKAXE),x+157,y+75);
+            g.drawWordWrap(font,text("diamond"),x+177,y+76,103,0xff44382e);
+            g.drawWordWrap(font,text("enchantments"),x+157,y+105,123,0xff594236);
+        } else if (book != GuidebookItem.Book.PRIMER) {
+            g.drawWordWrap(font,text(book.id + ".empty"),x+157,y+52,120,0xff594236);
+        }
+        super.render(g, mouseX, mouseY, partialTick);
     }
 }

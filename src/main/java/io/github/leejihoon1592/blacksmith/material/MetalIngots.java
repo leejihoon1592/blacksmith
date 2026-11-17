@@ -47,6 +47,8 @@ public final class MetalIngots {
                 .icon(() -> ALL.get(0).get().getDefaultInstance())
                 .displayItems((parameters, output) -> {
                     output.accept(BlacksmithMod.GUIDEBOOK.get());
+                    output.accept(BlacksmithMod.MATERIAL_JOURNAL.get());
+                    output.accept(BlacksmithMod.WEAPON_LEDGER.get());
                     ALL.forEach(ingot -> output.accept(ingot.get()));
                     OTHER_MATERIALS.forEach(item -> output.accept(item.get()));
                 })

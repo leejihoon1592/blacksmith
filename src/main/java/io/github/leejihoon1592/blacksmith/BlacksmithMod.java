@@ -55,7 +55,9 @@ public class BlacksmithMod
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
 
-    public static final RegistryObject<Item> GUIDEBOOK = ITEMS.register("guidebook", GuidebookItem::new);
+    public static final RegistryObject<Item> GUIDEBOOK = ITEMS.register("guidebook", () -> new GuidebookItem(GuidebookItem.Book.PRIMER));
+    public static final RegistryObject<Item> MATERIAL_JOURNAL = ITEMS.register("material_journal", () -> new GuidebookItem(GuidebookItem.Book.MATERIALS));
+    public static final RegistryObject<Item> WEAPON_LEDGER = ITEMS.register("weapon_ledger", () -> new GuidebookItem(GuidebookItem.Book.WEAPONS));
 
     public BlacksmithMod(FMLJavaModLoadingContext context)
     {
