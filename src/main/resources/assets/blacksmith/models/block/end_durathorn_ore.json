@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/end_durathorn_ore"
+    "all": "blacksmith:block/ore/end/end_durathorn_ore"
   }
 }

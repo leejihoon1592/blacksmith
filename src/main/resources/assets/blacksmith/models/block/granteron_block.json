@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/granteron_block"
+    "all": "blacksmith:block/storage/ingot/granteron_block"
   }
 }

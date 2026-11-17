@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/deepslate_biklis_ore"
+    "all": "blacksmith:block/ore/deepslate/deepslate_biklis_ore"
   }
 }

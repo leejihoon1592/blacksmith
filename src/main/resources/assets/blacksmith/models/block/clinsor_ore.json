@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/clinsor_ore"
+    "all": "blacksmith:block/ore/stone/clinsor_ore"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/raw_stevalite_block"
+    "all": "blacksmith:block/storage/raw/raw_stevalite_block"
   }
 }

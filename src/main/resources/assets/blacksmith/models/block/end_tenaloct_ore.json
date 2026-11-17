@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/end_tenaloct_ore"
+    "all": "blacksmith:block/ore/end/end_tenaloct_ore"
   }
 }

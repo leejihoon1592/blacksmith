@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/nether_voltarite_ore"
+    "all": "blacksmith:block/ore/nether/nether_voltarite_ore"
   }
 }

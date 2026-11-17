@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "blacksmith:block/end_sprinal_ore"
+    "all": "blacksmith:block/ore/end/end_sprinal_ore"
   }
 }
