@@ -1,4 +1,9 @@
 {
+  "item.blacksmith.guidebook": "Blacksmith’s Guide",
+  "guide.blacksmith.mining": "Mining your first ore",
+  "guide.blacksmith.iron": "Iron pickaxe: 4–9 nuggets",
+  "guide.blacksmith.diamond": "Diamond pickaxe: 1 raw metal",
+  "guide.blacksmith.enchantments": "Fortune can increase the yield. Silk Touch on a diamond-tier pickaxe drops the ore block.",
   "itemGroup.blacksmith.materials": "Blacksmith Materials",
   "item.blacksmith.duracilium_ingot": "Duracilium Ingot",
   "item.blacksmith.enduri_ingot": "Enduri Ingot",

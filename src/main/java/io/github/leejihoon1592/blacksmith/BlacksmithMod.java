@@ -1,6 +1,7 @@
 package io.github.leejihoon1592.blacksmith;
 
 import com.mojang.logging.LogUtils;
+import io.github.leejihoon1592.blacksmith.guide.GuidebookItem;
 import io.github.leejihoon1592.blacksmith.material.MetalIngots;
 import io.github.leejihoon1592.blacksmith.material.MiningToolPredicate;
 import net.minecraft.client.Minecraft;
@@ -53,6 +54,8 @@ public class BlacksmithMod
     // Creates a new food item with the id "blacksmith:example_id", nutrition 1 and saturation 2
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
+
+    public static final RegistryObject<Item> GUIDEBOOK = ITEMS.register("guidebook", GuidebookItem::new);
 
     public BlacksmithMod(FMLJavaModLoadingContext context)
     {

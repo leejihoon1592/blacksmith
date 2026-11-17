@@ -1,4 +1,9 @@
 {
+  "item.blacksmith.guidebook": "대장장이 가이드북",
+  "guide.blacksmith.mining": "첫 광물 캐기",
+  "guide.blacksmith.iron": "철 곡괭이 → 금속 조각 4~9개",
+  "guide.blacksmith.diamond": "다이아몬드 곡괭이 → 원석 1개",
+  "guide.blacksmith.enchantments": "행운은 드롭 수량을 늘릴 수 있습니다. 다이아몬드급 곡괭이에 섬세한 손길이 있으면 광석 블록을 얻습니다.",
   "itemGroup.blacksmith.materials": "블랙스미스 재료",
   "item.blacksmith.duracilium_ingot": "듀라시움 주괴",
   "item.blacksmith.enduri_ingot": "엔듀리온 주괴",

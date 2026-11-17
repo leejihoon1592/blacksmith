@@ -46,6 +46,7 @@ public final class MetalIngots {
                 .title(Component.translatable("itemGroup.blacksmith.materials"))
                 .icon(() -> ALL.get(0).get().getDefaultInstance())
                 .displayItems((parameters, output) -> {
+                    output.accept(BlacksmithMod.GUIDEBOOK.get());
                     ALL.forEach(ingot -> output.accept(ingot.get()));
                     OTHER_MATERIALS.forEach(item -> output.accept(item.get()));
                 })
