@@ -35,7 +35,7 @@ public final class MiningGuideScreen extends Screen {
         top = (height - 174) / 2;
         if (book == GuidebookItem.Book.PRIMER) {
             Component label = mining ? text("contents") : text("mining").copy()
-                    .append(miningRead ? "○" : "△")
+                    .append(miningRead ? "\u25cb" : "\u25b3")
                     .withStyle(style -> style.withColor(miningRead ? 0x287035 : 0xA77900));
             addRenderableWidget(new PlainTextButton(left + (mining ? 12 : 157),
                     top + (mining ? 137 : 57), font.width(label), font.lineHeight, label, button -> {
@@ -45,7 +45,13 @@ public final class MiningGuideScreen extends Screen {
                     GuideNetwork.markMiningRead();
                 }
                 rebuildWidgets();
-            }, font));
+            }, font) {
+                @Override
+                public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+                    Component link = getMessage().copy().withStyle(style -> style.withUnderlined(isHoveredOrFocused()));
+                    graphics.drawString(font, link, getX(), getY(), 0xff493326, false);
+                }
+            });
         }
     }
 
